@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/seg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 58, 169, 183)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Descubra a quantidade ideal de água'),
+      home: const MyHomePage(title: 'Water Reminder'),
     );
   }
 }
@@ -91,54 +92,78 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Align(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Text(
+              'Descubra seu alvo ',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             new TextField(
               onChanged: (text) {
                 peso = double.parse(text);
               },
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
                 hintText: 'Insira seu peso',
+                contentPadding: EdgeInsets.all(9.0),
               ),
             ),
-            const Text(
-              'Você deve ingerir: ',
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              child: const Text(
+                'Você deve ingerir: ',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
             ),
             Text(
               '$_calculo',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            TextButton(
+            const Text('ml/dia'),
+            ElevatedButton(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                foregroundColor: MaterialStateProperty.all<Color>(
+                    Color.fromARGB(255, 235, 236, 237)),
               ),
               onPressed: () {
                 _calcAgua(peso, ml);
               },
               child: Text('Calcular'),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 32),
+              width: 200,
+              child: TextButton(
+                child: Text('Usar este alvo'),
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 9, 97, 185)),
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement<void, void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const AuthPage(title: "home"),
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formaatting nicer for build methods.
     );
   }
 }
