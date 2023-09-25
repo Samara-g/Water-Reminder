@@ -1,68 +1,155 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/index.dart';
+import 'package:flutter_application_1/seg.dart';
 
-class AuthPage extends StatefulWidget {
-  const AuthPage({super.key, required this.title});
+void main() {
+  runApp(const Seg(title: 'seg',));
+}
+
+class Seg extends StatelessWidget {
+  const Seg({Key? key, required String title}):super(key: key);
+
+ 
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Calculadora de água',
+      theme: ThemeData(
+       
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 169, 183, 1)),
+        useMaterial3: true,
+
+
+      ),
+      home: const MyHomePage(title: 'Water Reminder'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+ 
   final String title;
 
   @override
-  State<AuthPage> createState() => _AuthPageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _AuthPageState extends State<AuthPage> {
+class _MyHomePageState extends State<MyHomePage> {
+  double _calculo = 0.0;
+  double peso = 0.0;
+  double ml = 35.0;
+
+  get pesoController => null;
+
+  void _calcAgua(double peso, double ml) {
+    setState(() {
+    
+      _calculo = peso * ml;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(items: const [
-      //   BottomNavigationBarItem(
-      //     icon: Icon(Icons.hotel_sharp),
-      //     label: 'Home',
-      //   ),
-      //   BottomNavigationBarItem(
-      //     icon: Icon(Icons.search),
-      //     label: 'Pesquisar',
-      //   ),
-      //   BottomNavigationBarItem(
-      //     icon: Icon(Icons.person),
-      //     label: 'Perfil',
-      //   ),
-      // ]),
-      // backgroundColor: Colors.white,
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(32),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image(
-                image: AssetImage('assets/profile.jpg'),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: Text(
-                  "Título",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam aliquet tellus, sit amet convallis velit venenatis eget. Pellentesque tincidunt rhoncus nunc quis efficitur.",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              )
-            ],
+   
+    var size;
+    return Scaffold(
+      appBar: AppBar(
+     
+        backgroundColor: Color.fromRGBO(71, 204, 221, 1),
+       
+        title: Text(widget.title,
+        style: TextStyle(
+          color: Color.fromRGBO(255, 255, 255, 1)
+          )
           ),
+      ),
+      body: Align(
+     
+      
+        child: Column(
+       
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            
+             Image(
+                  image: AssetImage('assets/cup.png'),
+               height: 200,
+                ),
+            const Text(
+              'Personalizar o recipiente ',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w400,
+                
+              ),
+            ),
+           
+            Container(
+              width:300,
+              child: new TextField(
+                onChanged: (text) {
+                  peso = double.parse(text);
+                },
+                decoration: InputDecoration(
+                  hintText: 'ml',
+                  contentPadding: EdgeInsets.all(9.0),
+
+               
+                ),
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top:50),
+              width: 150,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(71, 204, 221, 1)),
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 255, 255, 255)),
+                     
+                ),
+                
+                onPressed: () {
+                   Navigator.pushReplacement<void, void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const Welcome(title: "seg"),
+                    ),
+                  );
+                },
+                child: Text('Iniciar'),
+                
+              ),
+            ), const SizedBox(height: 200),
+           /*   Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              width: 200,
+              child: TextButton(
+                child: Text('Usar este alvo'),
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromRGBO(2, 178, 201, 1)),
+                ),
+              onPressed: () {
+                  Navigator.pushReplacement<void, void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const AuthPage(title: "home"),
+                    ),
+                  );
+                },
+              ),
+            )*/
+          ],
         ),
       ),
+      // This trailing comma makes auto-formaatting nicer for build methods.
     );
   }
 }
