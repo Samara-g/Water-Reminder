@@ -6,20 +6,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}):super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
- 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Calculadora de água',
       theme: ThemeData(
-       
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 169, 183, 1)),
         useMaterial3: true,
-
-
       ),
       home: const MyHomePage(title: 'Water Reminder'),
     );
@@ -29,7 +25,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
- 
   final String title;
 
   @override
@@ -45,49 +40,42 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _calcAgua(double peso, double ml) {
     setState(() {
-    
       _calculo = peso * ml;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-   
     var size;
     return Scaffold(
       appBar: AppBar(
-     
         backgroundColor: Color.fromRGBO(71, 204, 221, 1),
-       
         title: Text(widget.title,
-        style: TextStyle(
-          color: Color.fromRGBO(255, 255, 255, 1)
-          )
-          ),
+            style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1))),
       ),
-      body: Align(
-     
-      
+      body: SingleChildScrollView(
         child: Column(
-       
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            
-             Image(
-                  image: AssetImage('assets/cup.png'),
-               height: 200,
+            Image(
+              image: AssetImage('assets/cup.png'),
+              height: 150,
+            ),
+            Center(
+              child: Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: const Text(
+                  'Descubra seu alvo ',
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-            const Text(
-              'Descubra seu alvo ',
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w400,
-                
               ),
             ),
-           
             Container(
-              width:300,
+              margin: const EdgeInsets.only(top: 15),
+              width: 500,
               child: new TextField(
                 onChanged: (text) {
                   peso = double.parse(text);
@@ -95,14 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   hintText: 'Insira seu peso',
                   contentPadding: EdgeInsets.all(9.0),
-
-               
                 ),
               ),
             ),
-
             Container(
-              margin: const EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.only(top: 50),
               child: const Text(
                 'Você deve ingerir: ',
                 style: TextStyle(
@@ -116,29 +101,28 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Container(
-              child: const Text('ml/dia', 
-              style: TextStyle(
-                 fontSize: 17,
-                  fontWeight: FontWeight.w400,
-              ),)
-              ),
-    
+                margin: const EdgeInsets.only(bottom: 40),
+                child: const Text(
+                  'ml/dia',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w400,
+                  ),
+                )),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(71, 204, 221, 1)),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Color.fromRGBO(71, 204, 221, 1)),
                 foregroundColor: MaterialStateProperty.all<Color>(
                     Color.fromARGB(255, 255, 255, 255)),
-                   
               ),
-              
               onPressed: () {
                 _calcAgua(peso, ml);
               },
               child: Text('Calcular'),
-              
-            ), const SizedBox(height: 10),
+            ),
             Container(
-              margin: const EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 10, top: 60),
               width: 200,
               child: TextButton(
                 child: Text('Usar este alvo'),
