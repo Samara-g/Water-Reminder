@@ -1,39 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/seg.dart';
+import 'package:flutter_application_1/menu.dart';
 
-void main() {
-  runApp(const Welcome(
-    title: 'index',
-  ));
-}
-class Welcome extends StatelessWidget {
-  const Welcome({Key? key, required String title}) : super(key: key);
-
+class Calc extends StatefulWidget {
+  const Calc({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-  
-    return MaterialApp(
-      title: 'Calculadora de água',
-      theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 169, 183, 1)),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Water Reminder'),
-    );
-  }
+  State<Calc> createState() => _CalcState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _CalcState extends State<Calc> {
   double _calculo = 0.0;
   double peso = 0.0;
   double ml = 35.0;
@@ -52,17 +26,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(71, 204, 221, 1),
-        title: Text(widget.title,
-            style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1))),
+        title: Text('Water Reminder'),
       ),
-     
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(
-              image: AssetImage('assets/cup.png'),
-              height: 150,
+            Container(
+              margin: const EdgeInsets.only(top: 70),
+              child: Image(
+                image: AssetImage('assets/cup.png'),
+                height: 150,
+              ),
             ),
             Center(
               child: Container(
@@ -78,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 15),
-              width: 500,
+              width: 300,
               child: new TextField(
                 onChanged: (text) {
                   peso = double.parse(text);
@@ -103,9 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_calculo',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-  
-            
-        
             Container(
                 margin: const EdgeInsets.only(bottom: 40),
                 child: const Text(
@@ -140,8 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushReplacement<void, void>(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          const Seg(title: "seg"),
+                      builder: (BuildContext context) => Menu(indexPage: 3),
                     ),
                   );
                 },

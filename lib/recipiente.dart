@@ -1,53 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/homepage.dart';
-
-void main() {
-  runApp(const Seg(
-    title: 'seg',
-  ));
-}
+import 'package:flutter_application_1/menu.dart';
 
 List<String> list = <String>['100ml', '200ml', '300ml', '400ml'];
 
-class Seg extends StatelessWidget {
-  const Seg({Key? key, required String title}) : super(key: key);
-
+class Rec extends StatefulWidget {
+  const Rec({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Calculadora de água',
-      theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 169, 183, 1)),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Water Reminder'),
-    );
-  }
+  State<Rec> createState() => _RecState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  double _calculo = 0.0;
-  double peso = 0.0;
-  double ml = 35.0;
-
-  get pesoController => null;
-
-  void _calcAgua(double peso, double ml) {
-    setState(() {
-      _calculo = peso * ml;
-    });
-  }
-
+class _RecState extends State<Rec> {
   String dropdownValue = list.first;
   @override
   Widget build(BuildContext context) {
@@ -55,17 +17,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(71, 204, 221, 1),
-        title: Text(widget.title,
-            style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1))),
+        title: Text('Water Reminder'),
       ),
       body: SingleChildScrollView(
         child: Align(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Image(
-                image: AssetImage('assets/cup.png'),
-                height: 150,
+              Container(
+                margin: const EdgeInsets.only(top: 70, bottom: 15),
+                child: Image(
+                  image: AssetImage('assets/cup.png'),
+                  height: 150,
+                ),
               ),
               const Text(
                 'Personalizar o recipiente ',
@@ -105,8 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.pushReplacement<void, void>(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const Home(title: "home"),
+                        builder: (BuildContext context) => Menu(
+                          indexPage: 1,
+                        ),
                       ),
                     );
                   },
@@ -114,31 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               const SizedBox(height: 200),
-              /*   Container(
-                margin: const EdgeInsets.only(bottom: 20),
-                width: 200,
-                child: TextButton(
-                  child: Text('Usar este alvo'),
-                  style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromRGBO(2, 178, 201, 1)),
-                  ),
-                onPressed: () {
-                    Navigator.pushReplacement<void, void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const AuthPage(title: "home"),
-                      ),
-                    );
-                  },
-                ),
-              )*/
             ],
           ),
         ),
       ),
-      // This trailing comma makes auto-formaatting nicer for build methods.
     );
   }
 }
