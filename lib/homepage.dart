@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/aboutpage.dart';
 
 void main() {
   runApp(const Home(
@@ -33,11 +34,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool checkboxValue1 = true;
-  bool checkboxValue2 = true;
-  bool checkboxValue3 = true;
+  bool checkboxValue1 = false;
+  bool checkboxValue2 = false;
+  bool checkboxValue3 = false;
 
   get pesoController => null;
+  
 
   void _calcAgua(double peso, double ml) {
     setState(() {});
@@ -72,6 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            Text(
+            'teste',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
             CheckboxListTile(
               value: checkboxValue1,
               onChanged: (bool? value) {
@@ -102,10 +108,27 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text('Concluído'),
             ),
             const Divider(height: 0),
+            IconButton(
+          icon: const Icon(Icons.water_drop_outlined),
+          tooltip: 'about',
+          onPressed: () {
+            setState(() {
+               Navigator.pushReplacement<void, void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const About(title: "about"),
+                    ),
+                  );
+            });
+          },
+        ),
           ],
         ),
+       
       ),
       // This trailing comma makes auto-formaatting nicer for build methods.
     );
   }
 }
+
