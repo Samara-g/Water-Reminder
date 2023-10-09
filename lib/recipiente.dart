@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data.dart';
 import 'package:flutter_application_1/menu.dart';
-
-List<String> list = <String>['100ml', '200ml', '300ml', '400ml'];
+import 'package:google_fonts/google_fonts.dart';
 
 class Rec extends StatefulWidget {
   const Rec({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _RecState extends State<Rec> {
     var size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(71, 204, 221, 1),
+        backgroundColor: Color.fromRGBO(58, 131, 183, 1),
         title: Text('Water Reminder'),
       ),
       body: SingleChildScrollView(
@@ -25,15 +25,15 @@ class _RecState extends State<Rec> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(top: 70, bottom: 15),
+                margin: const EdgeInsets.only(top: 50, bottom: 15),
                 child: Image(
                   image: AssetImage('assets/cup.png'),
                   height: 150,
                 ),
               ),
-              const Text(
+              Text(
                 'Personalizar o recipiente ',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 23,
                   fontWeight: FontWeight.w400,
                 ),
@@ -57,13 +57,19 @@ class _RecState extends State<Rec> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 50),
-                width: 150,
+                width: 100,
                 child: ElevatedButton(
                   style: ButtonStyle(
+                    mouseCursor: MaterialStateMouseCursor.clickable,
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromRGBO(71, 204, 221, 1)),
+                        Color.fromRGBO(58, 131, 183, 1)),
                     foregroundColor: MaterialStateProperty.all<Color>(
                         Color.fromARGB(255, 255, 255, 255)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement<void, void>(
@@ -75,7 +81,10 @@ class _RecState extends State<Rec> {
                       ),
                     );
                   },
-                  child: Text('Iniciar'),
+                  child: Text(
+                    'Iniciar',
+                    style: GoogleFonts.poppins(),
+                  ),
                 ),
               ),
               const SizedBox(height: 200),

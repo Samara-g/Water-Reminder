@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Lembrete extends StatefulWidget {
   const Lembrete({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class _LembreteState extends State<Lembrete> {
     var size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(71, 204, 221, 1),
+        backgroundColor: Color.fromRGBO(58, 131, 183, 1),
         title: Text('Water Reminder'),
       ),
       body: SingleChildScrollView(
@@ -25,7 +27,7 @@ class _LembreteState extends State<Lembrete> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 50),
+              margin: const EdgeInsets.only(top: 10),
               child: Image(
                 image: AssetImage('assets/gota.png'),
                 height: 150,
@@ -33,19 +35,24 @@ class _LembreteState extends State<Lembrete> {
             ),
             Center(
               child: Container(
-                margin: const EdgeInsets.only(top: 10),
-                child: const Text(
+                child: Text(
                   'Seu alvo é: ',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 23,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
             ),
-            Text(
-              'teste',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(
+                '$calculo' 'ml',
+                style: GoogleFonts.poppins(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w300,
+                    color: Color.fromRGBO(58, 131, 183, 1)),
+              ),
             ),
             CheckboxListTile(
               value: checkboxValue1,

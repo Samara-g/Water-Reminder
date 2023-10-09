@@ -62,8 +62,8 @@ class _MenuState extends State<Menu> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: ReturnOpcaoSelecionada(),
           unselectedItemColor: Color.fromRGBO(255, 255, 255, 0.969),
-          selectedItemColor: Color.fromRGBO(0, 158, 164, 0.98),
-          backgroundColor: Color.fromRGBO(71, 204, 221, 1),
+          selectedItemColor: Color.fromRGBO(129, 192, 237, 1),
+          backgroundColor: Color.fromRGBO(58, 131, 183, 1),
           onTap: (opcao) {
             //  print("clicou $opcao");
 
@@ -81,7 +81,7 @@ class _MenuState extends State<Menu> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.help),
+              icon: Icon(Icons.lightbulb_outline),
               label: 'Sobre',
             ),
           ]),

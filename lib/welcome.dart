@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/calculadora.dart';
 import 'package:flutter_application_1/menu.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -39,8 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: const BoxDecoration(
             gradient: LinearGradient(
           colors: [
-            Color.fromRGBO(58, 169, 183, 1),
-            Color.fromARGB(210, 130, 236, 210),
+            Color.fromRGBO(58, 131, 183, 1),
+            Color.fromARGB(210, 130, 204, 236),
           ],
         )),
         child: Column(
@@ -48,13 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.only(top: 10, bottom: 10),
-              child: const Text(
-                'WATER REMINDER',
-                style: TextStyle(
-                    fontFamily: 'RobotoMono',
-                    fontSize: 23,
+              child: Text(
+                'Water Reminder',
+                style: GoogleFonts.poppins(
+                    fontSize: 25,
                     fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(255, 255, 255, 1)),
+                    color: Color.fromARGB(255, 255, 255, 255)),
               ),
             ),
             Container(
@@ -73,10 +72,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ButtonStyle(
                   mouseCursor: MaterialStateMouseCursor.clickable,
                   backgroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromRGBO(58, 131, 183, 1)),
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 255, 255, 255)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                ),
+
+                /*style: ButtonStyle(
+                  
+                  mouseCursor: MaterialStateMouseCursor.clickable,
+                  backgroundColor: MaterialStateProperty.all<Color>(
                       Color.fromRGBO(255, 255, 255, 1)),
                   foregroundColor: MaterialStateProperty.all<Color>(
                       Color.fromARGB(255, 0, 113, 121)),
-                ),
+                ),*/
                 onPressed: () {
                   Navigator.pushReplacement<void, void>(
                     context,
@@ -85,7 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   );
                 },
-                child: Text('Entrar'),
+                child: Text(
+                  'Entrar',
+                  style: GoogleFonts.poppins(),
+                ),
               ),
             ),
             const SizedBox(height: 40),

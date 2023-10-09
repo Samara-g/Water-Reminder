@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data.dart';
 import 'package:flutter_application_1/menu.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Calc extends StatefulWidget {
   const Calc({Key? key}) : super(key: key);
@@ -8,15 +10,14 @@ class Calc extends StatefulWidget {
 }
 
 class _CalcState extends State<Calc> {
-  double _calculo = 0.0;
-  double peso = 0.0;
-  double ml = 35.0;
+  int peso = 0;
+  int ml = 35;
 
   get pesoController => null;
 
-  void _calcAgua(double peso, double ml) {
+  void _calcAgua(int peso, int ml) {
     setState(() {
-      _calculo = peso * ml;
+      calculo = peso * ml;
     });
   }
 
@@ -25,7 +26,7 @@ class _CalcState extends State<Calc> {
     var size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(71, 204, 221, 1),
+        backgroundColor: Color.fromRGBO(58, 131, 183, 1),
         title: Text('Water Reminder'),
       ),
       body: SingleChildScrollView(
@@ -33,7 +34,7 @@ class _CalcState extends State<Calc> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 70),
+              margin: const EdgeInsets.only(top: 20),
               child: Image(
                 image: AssetImage('assets/cup.png'),
                 height: 150,
@@ -42,9 +43,9 @@ class _CalcState extends State<Calc> {
             Center(
               child: Container(
                 margin: const EdgeInsets.only(top: 10),
-                child: const Text(
+                child: Text(
                   'Descubra seu alvo ',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 23,
                     fontWeight: FontWeight.w400,
                   ),
@@ -56,57 +57,76 @@ class _CalcState extends State<Calc> {
               width: 300,
               child: new TextField(
                 onChanged: (text) {
-                  peso = double.parse(text);
+                  peso = int.parse(text);
                 },
                 decoration: InputDecoration(
                   hintText: 'Insira seu peso',
+                  hintStyle: GoogleFonts.poppins(),
                   contentPadding: EdgeInsets.all(9.0),
                 ),
               ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 50),
-              child: const Text(
+              child: Text(
                 'Você deve ingerir: ',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-            Text(
-              '$_calculo',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(
+                '$calculo' 'ml',
+                style: GoogleFonts.poppins(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w300,
+                    color: Color.fromRGBO(0, 0, 0, 1)),
+              ),
             ),
             Container(
                 margin: const EdgeInsets.only(bottom: 40),
-                child: const Text(
-                  'ml/dia',
-                  style: TextStyle(
+                child: Text(
+                  'ao dia',
+                  style: GoogleFonts.poppins(
                     fontSize: 17,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w300,
                   ),
                 )),
             ElevatedButton(
               style: ButtonStyle(
+                mouseCursor: MaterialStateMouseCursor.clickable,
                 backgroundColor: MaterialStateProperty.all<Color>(
-                    Color.fromRGBO(71, 204, 221, 1)),
+                    Color.fromRGBO(58, 131, 183, 1)),
                 foregroundColor: MaterialStateProperty.all<Color>(
                     Color.fromARGB(255, 255, 255, 255)),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
               ),
               onPressed: () {
                 _calcAgua(peso, ml);
               },
-              child: Text('Calcular'),
+              child: Text(
+                'Calcular',
+                style: GoogleFonts.poppins(),
+              ),
             ),
             Container(
-              margin: const EdgeInsets.only(bottom: 10, top: 60),
+              margin: const EdgeInsets.only(bottom: 10, top: 30),
               width: 200,
               child: TextButton(
-                child: Text('Usar este alvo'),
+                child: Text(
+                  'Usar este alvo',
+                  style: GoogleFonts.poppins(),
+                ),
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromRGBO(2, 178, 201, 1)),
+                      Color.fromRGBO(58, 131, 183, 1)),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement<void, void>(

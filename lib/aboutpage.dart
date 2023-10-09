@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(71, 204, 221, 1),
+        backgroundColor: Color.fromRGBO(113, 188, 242, 1),
         title: Text('Water Reminder'),
       ),
       body: SingleChildScrollView(
@@ -24,7 +25,7 @@ class _AboutState extends State<About> {
             Container(
               margin: const EdgeInsets.only(bottom: 10),
               child: Container(
-                  margin: const EdgeInsets.only(top: 10,bottom: 20),
+                margin: const EdgeInsets.only(top: 10, bottom: 20),
                 child: Image(
                   image: AssetImage('assets/about.png'),
                   height: 200,
@@ -33,19 +34,44 @@ class _AboutState extends State<About> {
             ),
             Center(
               child: Container(
-                margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                child: const Text(
+                margin: const EdgeInsets.only(
+                    top: 5, left: 10, right: 10, bottom: 20),
+                child: Text(
                   ' O corpo humano é composto por mais de 70% de água. Ela protege e hidrata as articulações e células, além de transportar nutrientes e auxiliar na eliminação de toxinas. \n\n '
                   'Apesar do dito popular de que se é necessário beber 2 litros de água por dia, de acordo com a Organização Mundial da Saúde existe um cálculo baseado no peso de cada pessoa para descobrir a quantidade exata a se consumir.\n\n'
                   'Não injerir água suficiente pode causar fraqueza, tontura, dor de cabeça, além de doenças derivadas. Assim como a injestão elevada pode provocar o desequilíbrio na concentração de eletrólitos no sangue, principalmente o sódio(hiponatremia). \n\n'
                   'Por isso beber água corretamente é vital para o corpo humano.',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 20),
+              child: Text(
+                'QUER UMA DICA?',
+                style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    backgroundColor: Color.fromRGBO(71, 204, 221, 0),
+                    color: Color.fromRGBO(58, 131, 183, 1)),
+              ),
+            ),
+            Container(
+                margin: const EdgeInsets.only(left: 10),
+                width: 400,
+                height: 30,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'lalala',
+                      style: GoogleFonts.poppins(fontSize: 15),
+                    )
+                  ],
+                ))
           ],
         ),
       ),
