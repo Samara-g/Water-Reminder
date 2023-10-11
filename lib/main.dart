@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/aboutpage.dart';
-import 'package:flutter_application_1/calculadora.dart';
+import 'package:flutter_application_1/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 169, 183, 1)),
       ),
-      home: const About(),
+      home: const Welcome(),
       debugShowCheckedModeBanner: false,
     );
   }

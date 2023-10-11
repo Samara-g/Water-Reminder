@@ -25,6 +25,7 @@ class _CalcState extends State<Calc> {
   Widget build(BuildContext context) {
     var size;
     return Scaffold(
+      backgroundColor: Color.fromRGBO(249, 252, 255, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(58, 131, 183, 1),
         title: Text('Water Reminder'),
@@ -56,12 +57,17 @@ class _CalcState extends State<Calc> {
               margin: const EdgeInsets.only(top: 15),
               width: 300,
               child: new TextField(
+                cursorColor: Color.fromARGB(255, 140, 180, 200),
                 onChanged: (text) {
                   peso = int.parse(text);
                 },
                 decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 140, 180, 200))),
                   hintText: 'Insira seu peso',
-                  hintStyle: GoogleFonts.poppins(),
+                  hintStyle: GoogleFonts.poppins(
+                      color: Color.fromRGBO(88, 117, 137, 1)),
                   contentPadding: EdgeInsets.all(9.0),
                 ),
               ),
@@ -81,9 +87,9 @@ class _CalcState extends State<Calc> {
               child: Text(
                 '$calculo' 'ml',
                 style: GoogleFonts.poppins(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w300,
-                    color: Color.fromRGBO(0, 0, 0, 1)),
+                  fontSize: 25,
+                  fontWeight: FontWeight.w300,
+                ),
               ),
             ),
             Container(
@@ -117,7 +123,7 @@ class _CalcState extends State<Calc> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(bottom: 10, top: 30),
+              margin: const EdgeInsets.only(bottom: 10, top: 20),
               width: 200,
               child: TextButton(
                 child: Text(

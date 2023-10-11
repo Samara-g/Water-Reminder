@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: const BoxDecoration(
             gradient: LinearGradient(
           colors: [
-            Color.fromRGBO(58, 131, 183, 1),
+            Color.fromRGBO(249, 252, 255, 1),
             Color.fromARGB(210, 130, 204, 236),
           ],
         )),

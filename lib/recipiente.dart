@@ -15,6 +15,7 @@ class _RecState extends State<Rec> {
   Widget build(BuildContext context) {
     var size;
     return Scaffold(
+      backgroundColor: Color.fromRGBO(237, 243, 248, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(58, 131, 183, 1),
         title: Text('Water Reminder'),
@@ -44,8 +45,9 @@ class _RecState extends State<Rec> {
                   initialSelection: list.first,
                   onSelected: (String? value) {
                     // This is called when the user selects an item.
+                    mlSelected = int.parse(value!.substring(0, 3));
                     setState(() {
-                      dropdownValue = value!;
+                      dropdownValue = value;
                     });
                   },
                   dropdownMenuEntries:

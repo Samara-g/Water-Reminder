@@ -14,6 +14,7 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(249, 252, 255, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(113, 188, 242, 1),
         title: Text('Water Reminder'),
@@ -22,15 +23,15 @@ class _AboutState extends State<About> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-              Container(
-                width: 500,
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            Color.fromRGBO(58, 131, 183, 1),
-            Color.fromARGB(210, 130, 204, 236),
-          ],
-        )),
+            Container(
+              width: 500,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(58, 131, 183, 1),
+                  Color.fromARGB(210, 130, 204, 236),
+                ],
+              )),
               margin: const EdgeInsets.only(bottom: 10),
               child: Container(
                 margin: const EdgeInsets.only(top: 10, bottom: 10),
@@ -57,26 +58,25 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-                  width: 500,
-                    decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                      colors: [
-              Color.fromRGBO(58, 131, 183, 1),
-              Color.fromARGB(210, 130, 204, 236),
-                      ],
-                    )),
+                width: 500,
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [
+                    Color.fromRGBO(58, 131, 183, 1),
+                    Color.fromARGB(210, 130, 204, 236),
+                  ],
+                )),
                 margin: const EdgeInsets.only(top: 10, bottom: 20),
-              child: Padding(
-                padding: EdgeInsets.only(left:100),
-                child: Text(
-                  'QUER UMA DICA?',
-                  style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromRGBO(255, 255, 255, 1)),
-                ),)
-              ),
-           
+                child: Padding(
+                  padding: EdgeInsets.only(left: 100),
+                  child: Text(
+                    'QUER UMA DICA?',
+                    style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(255, 255, 255, 1)),
+                  ),
+                )),
             Container(
                 margin: const EdgeInsets.only(left: 10),
                 width: 400,

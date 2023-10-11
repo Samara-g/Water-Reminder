@@ -10,14 +10,22 @@ class Lembrete extends StatefulWidget {
 }
 
 class _LembreteState extends State<Lembrete> {
-  bool checkboxValue1 = false;
-  bool checkboxValue2 = false;
-  bool checkboxValue3 = false;
+  List<bool> checkBoxList = List.empty(growable: true);
+
+  @override
+  void initState() {
+    checkBoxList = List.empty(growable: true);
+    for (var i = 0; i < calcRec(); i++) {
+      checkBoxList.add(false);
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     var size;
     return Scaffold(
+      backgroundColor: Color.fromRGBO(249, 252, 255, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(58, 131, 183, 1),
         title: Text('Water Reminder'),
@@ -27,10 +35,10 @@ class _LembreteState extends State<Lembrete> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 10),
+              margin: const EdgeInsets.only(top: 40),
               child: Image(
                 image: AssetImage('assets/gota.png'),
-                height: 150,
+                height: 90,
               ),
             ),
             Center(
@@ -54,34 +62,26 @@ class _LembreteState extends State<Lembrete> {
                     color: Color.fromRGBO(58, 131, 183, 1)),
               ),
             ),
-            CheckboxListTile(
-              value: checkboxValue1,
-              onChanged: (bool? value) {
-                setState(() {
-                  checkboxValue1 = value!;
-                });
-              },
-              title: const Text('Concluído'),
-            ),
-            const Divider(height: 0),
-            CheckboxListTile(
-              value: checkboxValue2,
-              onChanged: (bool? value) {
-                setState(() {
-                  checkboxValue2 = value!;
-                });
-              },
-              title: const Text('Concluído'),
-            ),
-            const Divider(height: 0),
-            CheckboxListTile(
-              value: checkboxValue3,
-              onChanged: (bool? value) {
-                setState(() {
-                  checkboxValue3 = value!;
-                });
-              },
-              title: const Text('Concluído'),
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Column(
+                  children: checkBoxList
+                      .map((checkbox) => Column(
+                            children: [
+                              CheckboxListTile(
+                                value: checkbox,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    checkbox = value!;
+                                  });
+                                },
+                                title: Text(
+                                    checkbox ? "Concluído" : "${mlSelected}ml"),
+                              ),
+                              const Divider(height: 0),
+                            ],
+                          ))
+                      .toList()),
             ),
           ],
         ),
