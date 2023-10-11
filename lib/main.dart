@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/aboutpage.dart';
 import 'package:flutter_application_1/calculadora.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 169, 183, 1)),
       ),
-      home: const Calc(),
+      home: const About(),
       debugShowCheckedModeBanner: false,
     );
   }
