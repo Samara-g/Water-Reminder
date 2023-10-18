@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: const BoxDecoration(
             gradient: LinearGradient(
           colors: [
-            Color.fromRGBO(249, 252, 255, 1),
+            Color.fromRGBO(151, 198, 246, 1),
             Color.fromARGB(210, 130, 204, 236),
           ],
         )),
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ButtonStyle(
                   mouseCursor: MaterialStateMouseCursor.clickable,
                   backgroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromRGBO(58, 131, 183, 1)),
+                      Color.fromARGB(255, 58, 131, 183)),
                   foregroundColor: MaterialStateProperty.all<Color>(
                       Color.fromARGB(255, 255, 255, 255)),
                   shape: MaterialStateProperty.all(

@@ -63,20 +63,26 @@ class _LembreteState extends State<Lembrete> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              margin: const EdgeInsets.only(top: 10),
               child: Column(
                   children: checkBoxList
+                      .asMap()
+                      .entries
                       .map((checkbox) => Column(
                             children: [
                               CheckboxListTile(
-                                value: checkbox,
+                                checkColor:
+                                    Color.fromRGBO(255, 255, 255, 0.984),
+                                activeColor: Color.fromRGBO(58, 131, 183, 1),
+                                value: checkbox.value,
                                 onChanged: (bool? value) {
                                   setState(() {
-                                    checkbox = value!;
+                                    checkBoxList[checkbox.key] = value!;
                                   });
                                 },
-                                title: Text(
-                                    checkbox ? "Concluído" : "${mlSelected}ml"),
+                                title: Text(checkbox.value
+                                    ? "Concluído"
+                                    : "${mlSelected}ml"),
                               ),
                               const Divider(height: 0),
                             ],

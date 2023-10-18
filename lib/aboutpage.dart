@@ -58,38 +58,51 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-                width: 500,
-                decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                  colors: [
-                    Color.fromRGBO(58, 131, 183, 1),
-                    Color.fromARGB(210, 130, 204, 236),
-                  ],
-                )),
-                margin: const EdgeInsets.only(top: 10, bottom: 20),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 100),
-                  child: Text(
-                    'QUER UMA DICA?',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Color.fromRGBO(255, 255, 255, 1)),
-                  ),
-                )),
+              width: 500,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(58, 131, 183, 1),
+                  Color.fromARGB(210, 130, 204, 236),
+                ],
+              )),
+              margin: const EdgeInsets.only(top: 10, bottom: 20),
+              child: Center(
+                child: Text(
+                  'QUER UMA DICA?',
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(255, 255, 255, 1)),
+                ),
+              ),
+            ),
             Container(
-                margin: const EdgeInsets.only(left: 10),
-                width: 400,
-                height: 30,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'lalala',
-                      style: GoogleFonts.poppins(fontSize: 15),
-                    )
-                  ],
-                ))
+              margin: const EdgeInsets.only(bottom: 25, top: 12),
+              child: Center(
+                child: Text(
+                  'Faça água aromatizada',
+                  style: GoogleFonts.poppins(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 50, 153, 197)),
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
+                child: Text(
+                  'Se você acha água “sem graça”, aposte em alguns ingredientes para torná-la mais interessante.\n\n'
+                  'Algumas ideias são água com fatias de pepino e limão, água com kiwi e morango, água com folhas de hortelã com gengibre, água com gengibre e laranja. \n\n'
+                  'Só não vale adicionar açúcar.',
+                  style: GoogleFonts.poppins(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
