@@ -38,7 +38,7 @@ class _CalcState extends State<Calc> {
               margin: const EdgeInsets.only(top: 20),
               child: Image(
                 image: AssetImage('assets/cup.png'),
-                height: 150,
+                height: 145,
               ),
             ),
             Center(
@@ -73,7 +73,7 @@ class _CalcState extends State<Calc> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 50),
+              margin: const EdgeInsets.only(top: 40),
               child: Text(
                 'Você deve ingerir: ',
                 style: GoogleFonts.poppins(
@@ -93,7 +93,7 @@ class _CalcState extends State<Calc> {
               ),
             ),
             Container(
-                margin: const EdgeInsets.only(bottom: 40),
+                margin: const EdgeInsets.only(bottom: 30),
                 child: Text(
                   'ao dia',
                   style: GoogleFonts.poppins(

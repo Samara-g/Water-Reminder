@@ -15,9 +15,11 @@ class _LembreteState extends State<Lembrete> {
   @override
   void initState() {
     checkBoxList = List.empty(growable: true);
-    for (var i = 0; i < calcRec(); i++) {
-      checkBoxList.add(false);
-    }
+
+    if (mlSelected != 0)
+      for (var i = 0; i < calcRec(); i++) {
+        checkBoxList.add(false);
+      }
     super.initState();
   }
 
