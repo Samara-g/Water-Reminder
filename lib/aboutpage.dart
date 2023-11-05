@@ -41,9 +41,9 @@ class _AboutState extends State<About> {
                 margin: const EdgeInsets.only(
                     top: 15, left: 10, right: 10, bottom: 20),
                 child: Text(
-                  ' O corpo humano é composto por mais de 70% de água. Ela protege e hidrata as articulações e cél necessário beber 2 litros de água por dia, de acordo com a Organização Mundial da Saúde existe um cálculo baseado no peso de cada pessoa para descobrir a quantidade exata a se consumir.\n\n'
-                  'Não injerir água suficiente pode causar fraqueza, tontura, dor de cabeça, além de doenças derivadas. Assim como a injestão elevada pode provocar o desequlas, além de transportar nutrientes e auxiliar na eliminação de toxinas. \n\n '
-                  'Apesar do dito popular de que se éuilíbrio na concentração de eletrólitos no sangue, principalmente o sódio(hiponatremia). \n\n'
+                  ' O corpo humano é composto por mais de 70% de água. Ela protege e hidrata as articulações e células, além de transportar nutrientes e auxiliar na eliminação de toxinas.\n\n'
+                  'Apesar do dito popular de que se é necessário beber 2 litros de água por dia, de acordo com a Organização Mundial da Saúde existe um cálculo baseado do peso de cada pessoa para descobrir a quantidade exata de água a se consumir. \n\n '
+                  'Não injerir água suficiente pode causar fraqueza, tontura, dor de cabeça, além de doenças derivadas. Assim como a injestão elevada pode provocar o desequilíbrio na concentração de eletrólitos no sangue, principalmente o sódio(hiponatremia).  \n\n'
                   'Por isso beber água corretamente é vital para o corpo humano.',
                   style: GoogleFonts.poppins(
                     fontSize: 15,
@@ -92,8 +92,7 @@ class _AboutState extends State<About> {
                 margin: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
                 child: Text(
                   'Se você acha água “sem graça”, aposte em alguns ingredientes para torná-la mais interessante.\n\n'
-                  'Algumas ideias são água com fatias de pepino e limão, água com kiwi e morango, água com folhas de hortelã com gengibre, água com gengibre e laranja. \n\n'
-                  'Só não vale adicionar açúcar.',
+                  'Algumas ideias são água com fatias de pepino e limão, água com kiwi e morango, água com folhas de hortelã com gengibre, água com gengibre e laranja. \n\n',
                   style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
